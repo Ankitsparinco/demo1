@@ -1,5 +1,4 @@
-""<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -116,32 +115,37 @@
 <body>
   <div class="lock-screen">
     <h2>What's the nickname given by you??</h2>
-    <form onsubmit="event.preventDefault(); checkPassword();">
-      <input type="text" id="password" placeholder="Enter nickname" aria-label="Nickname" />
-      <button type="submit" aria-label="Submit password">Submit</button>
-    </form>
+    <input type="text" id="password" placeholder="Enter nickname" />
+    <button onclick="checkPassword()">Submit</button>
     <div class="suggestions" id="suggestions"></div>
-  </div>  <div class="content" id="mainContent">
+  </div>
+
+  <div class="content" id="mainContent">
     <div class="hearts" id="heartsContainer"></div>
-    <img src="revise.jpg" alt="Manu Di" />
-    <p>Happy Birthday Manu Di! 🎉❤<br>
+    <img src="IMG-20250507-WA0004.jpg" alt="Manu Di" />
+    <p>Happy Birthday Manu Di! 🎉❤️<br>
       You are the most incredible sister one could ask for — full of strength, grace, and that comforting love only you can give.<br>
       I know I may have made mistakes, even ones I don't know about... and for all of them, I truly apologize. You’ve always been forgiving and understanding, and I’m grateful for that every day.<br>
       Thank you for being you. 💖
     </p>
     <div class="signature">Your brother, Paneer Tikki</div>
-    <div class="ending">I love you Manu Di</div>
-  </div>  <script>
-    function checkPassword() {
-      const inputVal = document.getElementById('password').value.toLowerCase().trim();
+    <div class="ending">*I love you Manu Di*</div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://aac.saavncdn.com/924/1c6fd13c77bce62a4c11b693cb8b2a09_160.mp4" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function checkPassword(value) {
+      const inputVal = value || document.getElementById('password').value.toLowerCase().trim();
       const correct = 'paneer tikki';
-      
       if (inputVal === correct) {
         document.querySelector('.lock-screen').style.display = 'none';
         document.getElementById('mainContent').style.display = 'block';
         generateHearts();
       } else {
-        document.getElementById('suggestions').innerHTML = "";
         const suggestionsHTML = `
           Try one of these:<br>
           <div class="suggestion-item" onclick="checkPassword('vicky')">vicky</div>
@@ -163,5 +167,6 @@
         container.appendChild(heart);
       }
     }
-  </script></body>
+  </script>
+</body>
 </html>
